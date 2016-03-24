@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Trace element</title>
+
+</head>
+	
+    <input type="button" aa_et="button-analysis" value="Button trace click on it" /> <br>
+    <div aa_et="div-analysis">this is html dic for trace </div><br>
+    <input type="text" aa_et="text-analysis" value="this is traced click on it" /><br>
+	
+    <input type="text" id="notTraced" /> <br>
+	<div class='discussion-container' aa_et='discussion-view-on'> discussion-view-on </div><br>
+	<div class='note-container' aa_et ='note-view-on'> note-view-on <div><br>
+
+<body>
+</body>
+</html>
+
+<script type="text/javascript" src="jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="custom.js"></script>
+<script type="text/javascript">
+   ANALYTICS.init(["jesonuser", 'http://localhost:3000/api/saveTraceElement/']);
+   ANALYTICS.traceElement();
+</script>
