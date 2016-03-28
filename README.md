@@ -2,7 +2,7 @@ Necessary requirement to run:
 
 1. jquery (min js ) 1.10 or higher 
 
-2. patform js (node module ) 
+2. patform js (client side html page include ) 
 https://github.com/bestiejs/platform.js/
 All instruction in link how to install and manage
 
@@ -32,6 +32,17 @@ than our analytics js
  
  goto server folder than type " npm install " , it will install all dependencies. than "put 'analytics' forder in node module of server side"
 
+code to call 
+------------
+app = express();
+
+var analytics = require('analytics');
+
+app.get('/',function(req,res){
+      res.sendFile(appRoot+'/client/1.html');
+});
+
+analytics.init(app,Event); // event is object of DB MODel , Please refer index.js server side file for more.
 
 
 after all configuration this are the run command 

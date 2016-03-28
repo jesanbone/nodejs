@@ -10,7 +10,9 @@ var EventHistorySchema = new Schema({
   Version: String,
   Layout: String,
   Os: String,
-  Description: String
+  Description: String,
+  Manufacturer : String,
+  Product : String
   
 });
 

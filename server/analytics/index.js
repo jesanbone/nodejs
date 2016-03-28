@@ -8,7 +8,7 @@
 
 'use strict';
 
-exports.init = function(app,Event,platform) {
+exports.init = function(app,Event) {
 
 app.post('/api/saveTraceElement', function(req,res)
 {
@@ -22,7 +22,10 @@ app.post('/api/saveTraceElement', function(req,res)
 	  Version: '',
 	  Layout: '',
 	  Os: '',
-	  Description: ''
+	  Description: '',
+	  Manufacturer : '',
+	  Product : ''
+	  
     });
 	
 	//console.log("username : "+req.body.userName);
@@ -30,11 +33,13 @@ app.post('/api/saveTraceElement', function(req,res)
     EventObj.User_Name	=	req.body.userName;
     EventObj.Start_Date	= 	new Date();
     EventObj.End_Date	=	'';
-	EventObj.Name 		= 	platform.name; // 'IE'
-	EventObj.Version 	=	platform.version; // '10.0'
-	EventObj.Layout 	=	platform.layout; // 'Trident'
-	EventObj.Os 		=	platform.os; // 'Windows Server 2008 R2 / 7 x64'
-	EventObj.Description=	platform.description
+	EventObj.Name 		= 	req.body.PName;
+	EventObj.Version 	=	req.body.Pversion;
+	EventObj.Layout 	=	req.body.Playout;
+	EventObj.Os 		=	req.body.Pos;
+	EventObj.Description=	req.body.Pdescription;
+	EventObj.Manufacturer=	req.body.Pmanufacturer;
+	EventObj.Product	=	req.body.Pproduct;
 
     var LastInsertedID;
     EventObj.save(function(err,docsInserted) {

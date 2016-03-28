@@ -33,7 +33,7 @@ var ANALYTICS = ANALYTICS || (function(){
 							$((this).attributes).each(function() { /**** here you have to added on array for database and analytics purpose ***/
 									 obj[this.nodeName] = this.nodeValue;
 								});
-								$.post(_args[1], { userName: _args[0], EventValue : obj}, 
+								$.post(_args[1], { userName: _args[0], EventValue : obj,PName: platform.name,Pversion :platform.version,Pproduct:platform.product,Pmanufacturer:platform.manufacturer,Playout:platform.layout,Pos:platform.os.family,Pdescription:platform.description}, 
 									function(returnedData){
 										 //console.log(returnedData);
 										 console.log("data Saved Successfully");
@@ -41,7 +41,7 @@ var ANALYTICS = ANALYTICS || (function(){
 						}
 					});
 				});
-
+				
 			}else{
 				console.log("you have to specified all args first");alert("you have to specified all args first");
 			}

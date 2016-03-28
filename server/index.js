@@ -4,8 +4,12 @@ var express = require('express'),
 	StartDatabaseLayer = require('./DataAccess/StartDb'),
     app = express();
 var Event = require('./Models/event');
-var platform = require('platform');
+
 var analytics = require('analytics');
+
+var path = require('path');
+global.appRoot = path.resolve(__dirname).substr(0, path.resolve(__dirname).lastIndexOf("\\"));
+
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -15,12 +19,13 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(appRoot + '/client'));
 
 //app.use(allowCrossDomain);
 
+console.log(appRoot);
 app.get('/',function(req,res){
-      res.sendFile(__dirname +'/1.html');
+      res.sendFile(appRoot+'/client/1.html');
 });
 
 
@@ -34,7 +39,7 @@ app.all('*', function(req, res, next) {
  });
 
 
-analytics.init(app,Event,platform);
+analytics.init(app,Event);
 
 process.on('uncaughtException', function (err) {
     if (err) console.log(err, err.stack);
