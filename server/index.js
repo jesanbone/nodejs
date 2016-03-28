@@ -15,7 +15,7 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/client'));
 
 //app.use(allowCrossDomain);
 
