@@ -1,0 +1,14 @@
+{
+  "name": "analytics",
+  "version": "1.0.0",
+  "description": "user for trace html element consise aa_et attributes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "analytics"
+  ],
+  "author": "Nimish Kacha (nimishat@live.com)",
+  "license": "ISC"
+}
